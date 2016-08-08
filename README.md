@@ -23,3 +23,4 @@ Plugins that I use:
 * vim-localvimrc
 * vim-repeat
 * vim-surround
+* typescript-vim
