@@ -24,4 +24,3 @@ Plugins that I use:
 * [vim-repeat](https://github.com/tpope/vim-repeat.git)
 * [vim-surround](https://github.com/tpope/vim-surround.git)
 * [typescript-vim](https://github.com/leafgarland/typescript-vim.git)
-* [vim-snipmate](https://github.com/honza/vim-snippets.git)
