@@ -24,3 +24,4 @@ Plugins that I use:
 * vim-repeat
 * vim-surround
 * typescript-vim
+* vim-snipmate
