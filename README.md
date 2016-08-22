@@ -25,4 +25,4 @@ Plugins that I use:
 * [vim-surround](https://github.com/tpope/vim-surround.git)
 * [typescript-vim](https://github.com/leafgarland/typescript-vim.git)
 * [javascript-syntax](https://github.com/jelera/vim-javascript-syntax.git)
-
+* [jshint2](https://github.com/Shutnik/jshint2.vim.git) (requires jshint installed)

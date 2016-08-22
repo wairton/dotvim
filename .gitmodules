@@ -37,3 +37,6 @@
 [submodule "bundle/javascript-syntax"]
 	path = bundle/javascript-syntax
 	url = git@github.com:jelera/vim-javascript-syntax.git
+[submodule "bundle/jshint2"]
+	path = bundle/jshint2
+	url = git@github.com:Shutnik/jshint2.vim.git
