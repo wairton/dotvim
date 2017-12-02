@@ -18,15 +18,13 @@ command Q q
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-l>'
 
+"netrw
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+
+
 "flake8
 autocmd FileType python map <buffer> <F8> :call flake8()<CR>
-
-"Dart
-if has('vim_starting')
-  set nocompatible
-  set runtimepath+=~/.vim/bundle/dart-vim-plugin
-endif
-filetype plugin indent on
 
 "localvimrc
 "https://github.com/embear/vim-localvimrc
