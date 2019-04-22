@@ -45,7 +45,7 @@ set mouse=a
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType jinja2 setlocal syntax=html
-colorscheme welflord
+colorscheme atomified
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
