@@ -1,22 +1,62 @@
-"pathogen stuff
-call pathogen#infect()
-call pathogen#helptags()
+" **main**
+" I'm not sure what this really changes other than support to old vi stuff
+set nocompatible
+" enable auto completion menu after pressing TAB.
+set wildmenu
+" make wildmenu behave like similar to Bash completion.
+set wildmode=list:longest
+set wildignore=*.pyc
+"enhance file information f
+set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+"display filename at the bottom
+set laststatus=2
+" enables mouse
+set mouse=a
 
-"my shortcuts
-set pastetoggle=<F3>
-nmap <C-F1> "+y
-nmap <F2> ggVG"+y
-nmap <F4> :vsplit<CR>
-nmap <F5> V"+y
-nmap <C-s> :w<CR>
+
+" **pet peeves and shortcuts**
 command Wq wq
 command WQ wq
 command W w
 command Q q
+nmap <F2> ggVG"+y
+set pastetoggle=<F3>
+nmap <C-s> :w<CR>
 
-"ctrlp.vim
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" **code editing**
+filetype on
+filetype plugin on
+syntax enable
+colorscheme atomified
+"enables number and relativenumber(rnu) but toggles rnu depending on the mode
+set number
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+" tabs should be spaces!
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType jinja2 setlocal syntax=html
+"no trailing spaces
+autocmd BufWritePre * :%s/\s\+$//e
+" I saw this one but now sure if it is equivalent
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+"configuring ctags
+command! MakeTags !ctags -R .
+
+
+" **ctrlp**
+" https://github.com/ctrlpvim/ctrlp.vim
 let g:ctrlp_map = '<c-l>'
+nmap <C-m> :CtrlPMRUFiles<CR>
 
 "netrw
 let g:netrw_liststyle = 3
@@ -24,34 +64,18 @@ let g:netrw_banner = 0
 
 
 "flake8
-autocmd FileType python map <buffer> <F8> :call flake8()<CR>
+"autocmd FileType python map <buffer> <F8> :call flake8()<CR>
 
 "localvimrc
 "https://github.com/embear/vim-localvimrc
-let g:localvimrc_sandbox = 0
-let g:localvimrc_ask = 0
+"let g:localvimrc_sandbox = 0
+"let g:localvimrc_ask = 0
+
+
+" **roots
+set tags=/home/wairton/toptal/roots/roots/mytreehoppr/tags,/home/wairton/toptal/roots/roots/.env/lib/tags
+
 
 "tips
 "%% shows current buffer path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-autocmd BufWritePre * :%s/\s\+$//e
-
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set number
-set mouse=a
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd FileType jinja2 setlocal syntax=html
-colorscheme atomified
-
-" Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc

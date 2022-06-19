@@ -1,10 +1,14 @@
 My vimrc configuration
 =============
 
-It is based on this [vimcast](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/)
-
 Setup instructions:
 ```
+mkdir -p ~/.vim/pack/plugins/start
+git clone --depth=1 https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/pack/plugins/start/ctrlp
+git clone https://tpope.io/vim/fugitive.git ~/.vim/pack/plugins/start/fugitive
+git clone https://github.com/tpope/vim-vinegar ~/.vim/pack/plugins/start/
+
+
 git clone git@github.com:wairton/dotvim.git .vim
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
@@ -15,9 +19,10 @@ git submodule update
 ```
 
 Plugins that I use:
-* [ctrlp.vim](https://github.com/kien/ctrlp.vim.git)
-* [matchit](https://github.com/tmhedberg/matchit.git)
-* [mru](https://github.com/vim-scripts/mru.vim.git)
+* [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
+* [vim-fugitive](https://github.com/tpope/vim-fugitive)
+* [vim-vinegar](https://github.com/tpope/vim-vinegar)
+
 * [snipmate](https://github.com/garbas/vim-snipmate.git)
 * [tcomment_vim](https://github.com/tomtom/tcomment_vim.git)
 * [vim-localvimrc](https://github.com/embear/vim-localvimrc.git)
